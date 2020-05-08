@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+    >
+
+    <com.parsonswang.zxfootball.common.view.CommonActionBar
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        />
+
+    <com.parsonswang.common.view.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        app:pstsIndicatorColor="@color/colorPrimary"
+        app:pstsTextColor="@color/colorBottomItemTextSelectedColor"
+        app:pstsIndicatorHeight="2dp"
+        app:pstsShouldExpand ="true"
+        android:background="@color/colorCommonBackground"
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mVpPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</LinearLayout>

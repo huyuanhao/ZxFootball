@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ZxFootball.iml" filepath="$PROJECT_DIR$/ZxFootball.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ZxFootball-master.iml" filepath="$PROJECT_DIR$/ZxFootball-master.iml" group="ZxFootball-master" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ZxFootball-master/app" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" group="ZxFootball-master/common" />
+      <module fileurl="file://$PROJECT_DIR$/../flutter_zxfootball/.android/Flutter/flutter.iml" filepath="$PROJECT_DIR$/../flutter_zxfootball/.android/Flutter/flutter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flutter_module/flutter_module.iml" filepath="$PROJECT_DIR$/flutter_module/flutter_module.iml" group="ZxFootball-master/flutter_module" />
+    </modules>
+  </component>
+</project>

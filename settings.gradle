@@ -1,0 +1,6 @@
+include ':app', ':common', ':flutter_module'
+//setBinding(new Binding([gradle: this]))                                 // new
+//evaluate(new File(                                                      // new
+//        settingsDir.parentFile,                                               // new
+//        'ZxFootball-master/my_flutter/.android/include_flutter.groovy'                          // new
+//))
