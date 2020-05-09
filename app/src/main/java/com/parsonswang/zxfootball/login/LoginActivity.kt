@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatActivity
+import com.blankj.utilcode.util.CacheDiskStaticUtils
+import com.blankj.utilcode.util.CacheMemoryStaticUtils
+import com.blankj.utilcode.util.CacheMemoryUtils
 import com.parsonswang.common.base.BaseActivity
 import com.parsonswang.zxfootball.MainActivity
 import com.parsonswang.zxfootball.R
@@ -18,14 +21,9 @@ import kotlinx.android.synthetic.main.activity_login.*
  */
 
 class LoginActivity :BaseActivity(){
-    companion object{
-        var userMap:HashMap<String,String> ? = null
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        userMap = hashMapOf()
 
         tv_register.setOnClickListener {
             val intent = Intent(this, RegistertActivity::class.java)
@@ -42,10 +40,12 @@ class LoginActivity :BaseActivity(){
                 toast(this,"密码不能为空！")
                 return@setOnClickListener
             }
-            if (userMap?.get(num)?.equals(pass)!!) {
+            if(CacheDiskStaticUtils.getString(num) == null){
+                toast(this,"账号或密码有误！")
+            }else if(CacheDiskStaticUtils.getString(num).equals(pass)){
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-            }else{
+            } else{
                 toast(this,"账号或密码有误！")
             }
         }
