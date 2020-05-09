@@ -1,16 +1,18 @@
 package com.parsonswang.zxfootball.news
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.parsonswang.common.base.BaseLazyLoadFragment
+import com.parsonswang.common.utils.UIUtils
 import com.parsonswang.zxfootball.R
 import com.parsonswang.zxfootball.bean.HeaderTabTitle
 import com.parsonswang.zxfootball.bean.NewsBean
+import com.parsonswang.zxfootball.common.view.CommonRecyclerViewDivider
 import com.parsonswang.zxfootball.utils.toast
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
@@ -49,6 +51,11 @@ class NewsItemFragment : BaseLazyLoadFragment(), NewsContract.INewsInfoView, Bas
         newsAdapter?.setOnItemClickListener(this)
         recyclerView.run {
             layoutManager = LinearLayoutManager(context)
+            addItemDecoration(CommonRecyclerViewDivider(
+                    context,
+                    LinearLayoutManager.VERTICAL,
+                    UIUtils.dip2px(context, 14.4f),
+                    Color.parseColor("#232C30")))
             adapter = newsAdapter
         }
 
@@ -69,7 +76,7 @@ class NewsItemFragment : BaseLazyLoadFragment(), NewsContract.INewsInfoView, Bas
 
     override fun loadData() {
         page = 1
-        mRefreshLayout.autoRefresh()
+        presenter?.getNewsInfos(page, news_name)
     }
 
     override fun showNewsInfoList(bean: MutableList<NewsBean>?) {

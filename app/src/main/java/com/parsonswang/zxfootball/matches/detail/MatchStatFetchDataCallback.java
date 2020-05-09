@@ -126,15 +126,18 @@ public class MatchStatFetchDataCallback extends HtmlCallback {
         //得到主队首发阵容
         Element homeTeamSummary = document.getElementById("match-summary-header-home-team");
         //阵型
-        matchStatBean.homeTeamFormation = homeTeamSummary.select("div.team-formation").text();
+        if(homeTeamSummary!=null) {
+            matchStatBean.homeTeamFormation = homeTeamSummary.select("div.team-formation").text();
+        }
 
         final List<PlayerStatics> homePlayerStaticsList = matchStatBean.homePlayerStaticsList;
         getMatchPlayerInfo(homePlayerStaticsList, matchStatBean, true);
 
         //得到客队首发阵容
         Element awayTeamSummary = document.getElementById("match-summary-header-away-team");
-        matchStatBean.awayTeamFormation = awayTeamSummary.select("div.team-formation").text();
-
+        if(awayTeamSummary!=null) {
+            matchStatBean.awayTeamFormation = awayTeamSummary.select("div.team-formation").text();
+        }
         final List<PlayerStatics> awayPlayerStaticsList = matchStatBean.awayPlayerStaticsList;
         getMatchPlayerInfo(awayPlayerStaticsList, matchStatBean, false);
 

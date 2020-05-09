@@ -7,6 +7,7 @@
     >
 
     <com.parsonswang.zxfootball.common.view.CommonActionBar
+        android:id="@+id/titlebar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         />

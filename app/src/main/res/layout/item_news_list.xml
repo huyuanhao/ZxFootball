@@ -2,6 +2,9 @@
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="100dp"
     android:padding="10dp"
+    android:layout_marginLeft="14.4dp"
+    android:layout_marginRight="14.4dp"
+    android:background="@drawable/border_corner_common_bg"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
@@ -18,6 +21,7 @@
         android:layout_toRightOf="@id/img"
         android:ellipsize="end"
         android:maxLines="2"
+        android:textColor="@color/colorPrimary"
         android:textSize="14sp" />
 
     <TextView
@@ -27,6 +31,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="13dp"
         android:layout_toRightOf="@id/img"
+        android:textColor="@color/colorPrimary"
         android:textSize="12sp" />
 
     <TextView
@@ -34,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp"
+        android:textColor="@color/colorPrimary"
         android:visibility="gone" />
 
     <TextView
@@ -42,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:textColor="@color/colorPrimary"
         android:background="?selectableItemBackgroundBorderless"
         android:textSize="13sp" />
 </RelativeLayout>

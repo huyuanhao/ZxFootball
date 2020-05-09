@@ -303,19 +303,22 @@ public class MatchDetailsFetchDataCallback extends HtmlCallback {
 
         String lun = matchInfoTrs.select("td.stat-box").text();
         detailHeaderInfoBean.matchLun = lun;
-
-        String matchStatus = matchInfoTrs.get(1).select("td.col2").text();
-        detailHeaderInfoBean.matchStatus = matchStatus;
-
-        String halfTimeScore = matchInfoTrs.get(2).select("td.col2").text();
-        detailHeaderInfoBean.halfTimeScore = halfTimeScore;
-
-        String endTimeScore = matchInfoTrs.get(3).select("td.col2").text();
-        detailHeaderInfoBean.endTimeScore = endTimeScore;
-
-        String matchTime = matchInfoTrs.get(4).select("td.col3").text();
-        detailHeaderInfoBean.matchTime = matchTime;
-
+        if(matchInfoTrs.size()>1) {
+            String matchStatus = matchInfoTrs.get(1).select("td.col2").text();
+            detailHeaderInfoBean.matchStatus = matchStatus;
+        }
+        if(matchInfoTrs.size()>2) {
+            String halfTimeScore = matchInfoTrs.get(2).select("td.col2").text();
+            detailHeaderInfoBean.halfTimeScore = halfTimeScore;
+        }
+        if(matchInfoTrs.size()>3) {
+            String endTimeScore = matchInfoTrs.get(3).select("td.col2").text();
+            detailHeaderInfoBean.endTimeScore = endTimeScore;
+        }
+        if(matchInfoTrs.size()>4) {
+            String matchTime = matchInfoTrs.get(4).select("td.col3").text();
+            detailHeaderInfoBean.matchTime = matchTime;
+        }
         return detailHeaderInfoBean;
     }
 }

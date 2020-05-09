@@ -17,6 +17,9 @@ import com.parsonswang.zxfootball.news.NewsFragment;
 import com.parsonswang.zxfootball.news.NewsFragment1;
 import com.parsonswang.zxfootball.price.PriceFragment;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import timber.log.Timber;
 
 public class MainActivity extends BaseActivity {
@@ -59,7 +62,7 @@ public class MainActivity extends BaseActivity {
 //                    selectFragment(4);
 //                    return true;
 //            }
-            return false;
+            return true;
         }
     };
 

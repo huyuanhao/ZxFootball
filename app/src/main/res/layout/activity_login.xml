@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_bg_f2f3f7"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="94dp"
+            android:layout_height="98dp"
+            android:layout_marginLeft="141dp"
+            android:layout_marginTop="80dp"
+            android:src="@mipmap/logo" />
+
+        <LinearLayout
+            android:layout_width="345dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="250dp"
+            android:background="@drawable/login_ed_bg_with_shadow"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="5dp"
+                android:src="@mipmap/login_icon_phone" />
+
+            <EditText
+                android:id="@+id/et_account"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="输入账号"
+                android:imeOptions="actionNext"
+                android:inputType="textVisiblePassword"
+                android:maxLength="18"
+                android:nextFocusForward="@id/et_password"
+                android:paddingLeft="6dp"
+                android:paddingRight="14dp"
+                android:singleLine="true"
+                android:textColorHint="#B8BCCC"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="345dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="310dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/login_ed_bg_with_shadow"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="5dp"
+                android:src="@mipmap/login_icon_pwd" />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="输入密码"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:paddingLeft="6dp"
+                android:paddingRight="14dp"
+                android:textColor="#FF333333"
+                android:textColorHint="#B8BCCC"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="29dp"
+            android:layout_marginTop="376dp"
+            android:text="注册"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="189dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="430dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_bg_selector"
+            android:text="登陆"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp" />
+    </FrameLayout>
+</LinearLayout>

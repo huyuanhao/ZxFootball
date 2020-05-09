@@ -9,7 +9,9 @@ import com.parsonswang.zxfootball.R
 import com.parsonswang.zxfootball.bean.HeaderTabTitle
 import com.parsonswang.zxfootball.common.view.CommonHeaderTabAdapter
 import com.parsonswang.zxfootball.common.view.NewsHeaderTabAdapter
+import kotlinx.android.synthetic.main.fragment_datas.*
 import kotlinx.android.synthetic.main.fragment_news.*
+import kotlinx.android.synthetic.main.fragment_news.titlebar
 
 /**
  * @author PC
@@ -25,6 +27,8 @@ class NewsFragment : Fragment(), NewsContract.NewsView {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        titlebar.setTitle("新闻")
+        titlebar.hideRightArrow()
         tabs?.selectedTextColor = activity!!.resources.getColor(R.color.colorPrimary)
 
         presenter = NewsPresenter(this)

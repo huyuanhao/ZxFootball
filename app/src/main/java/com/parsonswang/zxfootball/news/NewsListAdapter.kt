@@ -21,7 +21,11 @@ class NewsListAdapter : BaseQuickAdapter<NewsBean, BaseViewHolder>(R.layout.item
             setText(R.id.auther, item.description)
             val imageView = helper.getView<ImageView>(R.id.img)
             if (!item.picUrl.isNullOrEmpty()) {
-                Imageloaders.loadImage(mContext, item.picUrl,imageView, 0)
+                if(!item.picUrl.startsWith("http")){
+                    Imageloaders.loadImage(mContext, "http:" + item.picUrl,imageView, 0)
+                }else {
+                    Imageloaders.loadImage(mContext, item.picUrl, imageView, 0)
+                }
             }
         }
     }

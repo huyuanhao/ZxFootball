@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.parsonswang.common.view.PagerSlidingTabStrip;
 import com.parsonswang.zxfootball.R;
 import com.parsonswang.zxfootball.bean.HeaderTabTitle;
+import com.parsonswang.zxfootball.common.view.CommonActionBar;
 import com.parsonswang.zxfootball.common.view.CommonHeaderTabAdapter;
 
 import java.util.List;
@@ -34,6 +35,9 @@ public class MatchesFragment extends Fragment implements MatchContract.IMatchVie
         View view = inflater.inflate(R.layout.fragment_matches, container, false);
         mTabs = view.findViewById(R.id.tabs);
         mVpPager = view.findViewById(R.id.mVpPager);
+        CommonActionBar titlebar = view.findViewById(R.id.titlebar);
+        titlebar.setTitle("比赛");
+        titlebar.hideRightArrow();
 
         mCommonHeaderTabAdapter = new CommonHeaderTabAdapter(getChildFragmentManager());
         mVpPager.setAdapter(mCommonHeaderTabAdapter);

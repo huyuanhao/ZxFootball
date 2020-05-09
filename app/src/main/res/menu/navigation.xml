@@ -18,7 +18,7 @@
     <item
         android:id="@+id/navigation_price"
         android:icon="@drawable/ic_bottombar_item_price"
-        android:title="@string/title_market_values"/>
+        android:title="@string/title_me"/>
 
 
 </menu>

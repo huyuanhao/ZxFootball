@@ -33,11 +33,7 @@ public class NewsHeaderTabAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        NewsItemFragment fragment = new NewsItemFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("news_name", mDataBeanList.get(position).getName());
-        fragment.setArguments(bundle);
-        return fragment;
+        return  NewsItemFragment.Companion.newInstance(mDataBeanList.get(position));
     }
 
     @Override

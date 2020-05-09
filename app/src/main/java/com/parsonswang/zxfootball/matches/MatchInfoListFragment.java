@@ -101,7 +101,7 @@ public class MatchInfoListFragment extends BaseLazyLoadFragment implements Match
         mRvMatchInfoList.setAdapter(mMatchInfoAdapter);
         mMatchInfoAdapter.setOnItemClickListener(this);
 
-        mRvMatchInfoList.addItemDecoration(PinnedHeaderItemDecoration.builder().adapterProvider(mMatchInfoAdapter).build());
+//        mRvMatchInfoList.addItemDecoration(PinnedHeaderItemDecoration.builder().adapterProvider(mMatchInfoAdapter).build());
 
         mMatchPresenter = new MatchPresenter(this);
         mCompetionId = getArguments().getString(ARGUMENT_COMPETIONID);
@@ -164,7 +164,7 @@ public class MatchInfoListFragment extends BaseLazyLoadFragment implements Match
         //增加比赛日期头部
         if (!matchInfos.isEmpty()) {
             MatchesBean.MatchInfo matchInfoHeader = new MatchesBean.MatchInfo();
-            matchInfoHeader.type = MatchesBean.MatchInfo.TYPE_TITLE;
+            matchInfoHeader.type = 1;
             matchInfoHeader.setMatchDate(getHeaderDateStr());
             hasMatchedList.add(matchInfoHeader);
         }
@@ -210,8 +210,9 @@ public class MatchInfoListFragment extends BaseLazyLoadFragment implements Match
     @Override
     protected void loadData() {
         Timber.i("---loadData---" + mCompetionId);
+        mRollbackMonth = 0;
         mOffset = 0;
-        mRefreshLayout.autoRefresh();
+        mMatchPresenter.getMatchInfos(mCompetionId, getSpecifyDateParams());
     }
 
     @Override

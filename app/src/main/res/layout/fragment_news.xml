@@ -6,8 +6,9 @@
               android:orientation="vertical">
 
     <com.parsonswang.zxfootball.common.view.CommonActionBar
+        android:id="@+id/titlebar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:tooltipText="@string/app_name" />
 
     <com.parsonswang.common.view.PagerSlidingTabStrip
