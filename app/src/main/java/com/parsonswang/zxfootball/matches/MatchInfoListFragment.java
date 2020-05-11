@@ -145,6 +145,8 @@ public class MatchInfoListFragment extends BaseLazyLoadFragment implements Match
 
     @Override
     public void showMatchInfoList(MatchesBean matchesBean) {
+        mRefreshLayout.finishRefresh();
+        mRefreshLayout.finishLoadmore();
 
         if (matchesBean == null) {
             return;
@@ -192,9 +194,6 @@ public class MatchInfoListFragment extends BaseLazyLoadFragment implements Match
 
         if (mOffset == 0) {
             mMatchInfoAdapter.clearData();
-            mRefreshLayout.finishRefresh();
-        } else {
-            mRefreshLayout.finishLoadmore();
         }
 
         mMatchInfoAdapter.addAll(matchInfos);
@@ -203,9 +202,16 @@ public class MatchInfoListFragment extends BaseLazyLoadFragment implements Match
         if (Integer.parseInt(mCompetionId) != 21 && hasMatchedList.size() < 10) {
             mRollbackMonth ++;
             mMatchPresenter.getMatchInfos(mCompetionId, getSpecifyDateParams());
+        }else {
+            mMatchInfoAdapter.notifyDataSetChanged();
         }
     }
 
+    @Override
+    public void onFail(String message) {
+        mRefreshLayout.finishRefresh();
+        mRefreshLayout.finishLoadmore();
+    }
 
     @Override
     protected void loadData() {

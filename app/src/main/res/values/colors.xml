@@ -14,5 +14,5 @@
     <color name="color_bg_f2f3f7">#f2f3f7</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorFootviewBg">#7CCD7C</color>
-
+    <color name="transparent">#00000000</color>
 </resources>

@@ -12,7 +12,7 @@ andResGuard {
             "*.gif",
             "resources.arsc"
     ]
-    whiteList = [
+    colorWhiteList = [
             // your icon
             "R.mipmap.ic_launcher",
             "R.mipmap.ic_launcher_round"

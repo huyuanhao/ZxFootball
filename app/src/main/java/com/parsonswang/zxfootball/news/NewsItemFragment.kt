@@ -1,5 +1,6 @@
 package com.parsonswang.zxfootball.news
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -91,6 +92,9 @@ class NewsItemFragment : BaseLazyLoadFragment(), NewsContract.INewsInfoView, Bas
     }
 
     override fun onItemClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
-        context?.let { toast(it,"点击" + position) }
+//        context?.let { toast(it,"点击" + position) }
+        val intent = Intent(context, WebActivity::class.java)
+        intent.putExtra("url", newsAdapter?.getItem(position)?.url)
+        startActivity(intent)
     }
 }

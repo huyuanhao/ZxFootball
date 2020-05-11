@@ -23,6 +23,8 @@ public class MatchContract {
 
     public interface IMatchInfoView {
          void showMatchInfoList(MatchesBean matchesBean);
+
+         void onFail(String message);
     }
 
 

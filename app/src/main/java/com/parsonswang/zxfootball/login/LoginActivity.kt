@@ -25,6 +25,10 @@ class LoginActivity :BaseActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        if(!TextUtils.isEmpty(CacheDiskStaticUtils.getString("user"))){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
         tv_register.setOnClickListener {
             val intent = Intent(this, RegistertActivity::class.java)
             startActivity(intent)
@@ -43,6 +47,8 @@ class LoginActivity :BaseActivity(){
             if(CacheDiskStaticUtils.getString(num) == null){
                 toast(this,"账号或密码有误！")
             }else if(CacheDiskStaticUtils.getString(num).equals(pass)){
+                CacheDiskStaticUtils.put("user",num)
+                CacheDiskStaticUtils.put("password",pass)
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             } else{

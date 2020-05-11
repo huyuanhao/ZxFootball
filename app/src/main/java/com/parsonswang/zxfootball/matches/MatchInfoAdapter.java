@@ -35,14 +35,12 @@ public class MatchInfoAdapter extends RecyclerView.Adapter implements AdapterSti
     public void addAll(List<MatchesBean.MatchInfo> matchInfoList) {
         if (matchInfoList != null && !matchInfoList.isEmpty()) {
             this.matchInfoList.addAll(matchInfoList);
-            notifyDataSetChanged();
         }
     }
 
     public void clearData() {
         if (matchInfoList != null && !matchInfoList.isEmpty()) {
             matchInfoList.clear();
-            notifyDataSetChanged();
         }
     }
 

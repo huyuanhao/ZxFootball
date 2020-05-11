@@ -85,6 +85,11 @@ class DataDetailActivity : BaseActivity(),  BaseQuickAdapter.OnItemClickListener
         MatchDetailActivity.actionStart(this, t?.getId().toString())
     }
 
+    override fun onFail(message: String?) {
+        mRefreshLayout.finishRefresh()
+        mRefreshLayout.finishLoadmore()
+    }
+
     override fun showMatchInfoList(bean: MatchesBean?) {
         if (bean == null) {
             return

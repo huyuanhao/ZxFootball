@@ -1,8 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-    android:background="@android:color/holo_orange_light"
-    >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:background="@color/colorCommonBackground">
+
+        <com.parsonswang.zxfootball.common.view.CommonActionBar
+            android:id="@+id/titlebar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <ImageView
+            android:id="@+id/ivHead"
+            android:layout_width="69dp"
+            android:layout_height="69dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="44dp"
+            android:background="@mipmap/logo"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="95dp"
+            android:layout_marginTop="50dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="name"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/settingLl"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:background="@color/colorCommonBackground"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="14dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/icon_mine_setting" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:gravity="center"
+            android:text="设置"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="268dp"
+            android:src="@mipmap/icon_item_arrow" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorCommonLine" />
+
+    <LinearLayout
+        android:id="@+id/myInfoLl"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:background="@color/colorCommonBackground"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="14dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/icon_mine_info" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:gravity="center"
+            android:text="资料"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="268dp"
+            android:src="@mipmap/icon_item_arrow" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorCommonLine" />
+
+</LinearLayout>
