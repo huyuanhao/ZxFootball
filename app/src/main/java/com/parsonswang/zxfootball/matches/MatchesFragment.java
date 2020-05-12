@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.parsonswang.common.base.BaseFragment;
 import com.parsonswang.common.view.PagerSlidingTabStrip;
 import com.parsonswang.zxfootball.R;
 import com.parsonswang.zxfootball.bean.HeaderTabTitle;
@@ -22,7 +23,7 @@ import timber.log.Timber;
  * Created by parsonswang on 2017/10/13.
  */
 
-public class MatchesFragment extends Fragment implements MatchContract.IMatchView {
+public class MatchesFragment extends BaseFragment implements MatchContract.IMatchView {
 
     private PagerSlidingTabStrip mTabs;
     private ViewPager mVpPager;
@@ -59,5 +60,15 @@ public class MatchesFragment extends Fragment implements MatchContract.IMatchVie
         List<HeaderTabTitle.TabInfo> dataBeanList = headerTabTitle.getData();
         mCommonHeaderTabAdapter.setDataBeanList(dataBeanList);
         mTabs.setViewPager(mVpPager);
+    }
+
+    @Override
+    public void showLoding() {
+        showProgressDialog();
+    }
+
+    @Override
+    public void hideLoding() {
+        dismissProgressDialog();
     }
 }

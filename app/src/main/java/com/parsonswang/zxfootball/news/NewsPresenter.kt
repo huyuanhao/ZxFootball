@@ -50,7 +50,7 @@ class NewsPresenter() : AbsPresenter(), NewsContract.INewsPresenter {
     }
 
     private fun getHeaderTabTitle() {
-        val leagueConfig = ConfigUtil.getOnlineConfig("league_config", "{\"data\":[{ \"name\":\"中超\", \"id\": 3 },{ \"name\":\"西甲\", \"id\": 2 },{ \"name\":\"英超\", \"id\": 1 },{ \"name\":\"意甲\", \"id\": 5 },{ \"name\":\"德甲\", \"id\": 4 },{ \"name\":\"法甲\", \"id\": 6 }]}")
+        val leagueConfig = ConfigUtil.getOnlineConfig("league_config", "{\"data\":[{ \"name\":\"英超\", \"id\": 1 },{ \"name\":\"中超\", \"id\": 3 },{ \"name\":\"西甲\", \"id\": 2 },{ \"name\":\"意甲\", \"id\": 5 },{ \"name\":\"德甲\", \"id\": 4 },{ \"name\":\"法甲\", \"id\": 6 }]}")
         Timber.i("leagueConfig|: $leagueConfig")
         if (StringUtils.isEmptyString(leagueConfig)) {
             newsView?.showHeaderTabTitle(null)

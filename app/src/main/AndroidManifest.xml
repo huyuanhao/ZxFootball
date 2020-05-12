@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.parsonswang.zxfootball.login.LoginActivity"
+            android:name=".SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/MainTheme"
@@ -41,6 +41,9 @@
 
 
         <activity android:name="com.parsonswang.zxfootball.login.RegistertActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".login.LoginActivity"
             android:screenOrientation="portrait"/>
 
 

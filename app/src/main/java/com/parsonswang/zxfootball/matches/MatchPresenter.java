@@ -63,6 +63,7 @@ public class MatchPresenter extends AbsPresenter implements MatchContract.IMatch
 
     @Override
     protected void start() {
+
         getHeaderTabTitle();
     }
 
@@ -79,6 +80,7 @@ public class MatchPresenter extends AbsPresenter implements MatchContract.IMatch
      */
     @Override
     public void getMatchInfos(String comeptitionId, String dataBetween) {
+        matchInfoView.showLoding();
         matchModel.getMatchInfoDatas(comeptitionId, dataBetween, new MachesFetchDataCallback<MatchesBean>(matchInfoView));
     }
 
@@ -106,7 +108,7 @@ public class MatchPresenter extends AbsPresenter implements MatchContract.IMatch
     }
 
     private void getHeaderTabTitle() {
-        String leagueConfig = ConfigUtil.getOnlineConfig("league_config", "{\"data\":[{ \"name\":\"中超\", \"id\": 3 },{ \"name\":\"西甲\", \"id\": 2 },{ \"name\":\"英超\", \"id\": 1 },{ \"name\":\"意甲\", \"id\": 5 },{ \"name\":\"德甲\", \"id\": 4 },{ \"name\":\"法甲\", \"id\": 6 }]}");
+        String leagueConfig = ConfigUtil.getOnlineConfig("league_config", "{\"data\":[{ \"name\":\"英超\", \"id\": 1 },{ \"name\":\"中超\", \"id\": 3 },{ \"name\":\"西甲\", \"id\": 2 },{ \"name\":\"意甲\", \"id\": 5 },{ \"name\":\"德甲\", \"id\": 4 },{ \"name\":\"法甲\", \"id\": 6 }]}");
 
         Timber.i("leagueConfig|: " + leagueConfig);
 

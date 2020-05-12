@@ -98,6 +98,7 @@ class DataDetailActivity : BaseActivity(),  BaseQuickAdapter.OnItemClickListener
             newsAdapter?.clearData()
         }
         newsAdapter?.addAll(bean.datas)
+        newsAdapter?.notifyDataSetChanged()
     }
 
     private fun getSpecifyDateParams(): String? {

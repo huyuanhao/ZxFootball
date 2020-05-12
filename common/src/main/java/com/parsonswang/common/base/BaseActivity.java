@@ -1,12 +1,15 @@
 package com.parsonswang.common.base;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.text.TextUtils;
 import android.transition.Fade;
 import android.view.Window;
 
@@ -15,6 +18,8 @@ import com.parsonswang.common.swipeback.SwipeLayoutHelper;
 import com.parsonswang.common.utils.BarUtils;
 
 import java.lang.ref.WeakReference;
+
+import me.leefeng.promptlibrary.PromptDialog;
 
 /**
  * Created by parsonswang on 2017/10/17.
@@ -34,7 +39,7 @@ public class BaseActivity extends AppCompatActivity {
             getWindow().setEnterTransition(new Fade());
         }
 
-        swipeLayoutHelper = new SwipeLayoutHelper(new WeakReference<Activity>(this));
+        swipeLayoutHelper = new SwipeLayoutHelper(new WeakReference< Activity >(this));
         swipeLayoutHelper.onActivityCreated();
 
         BarUtils.setStatusBarColor(this, getResources().getColor(R.color.colorCommonBackground));
@@ -47,5 +52,25 @@ public class BaseActivity extends AppCompatActivity {
             return;
         }
         swipeLayoutHelper.onPoseCreated();
+    }
+
+    private PromptDialog progressDialog = null;
+    public void showProgressDialog() {
+        showProgressDialog("");
+    }
+
+    public void showProgressDialog(String message) {
+        if (progressDialog == null) {
+            progressDialog = new PromptDialog(this);
+        }
+        if (TextUtils.isEmpty(message)) {
+            progressDialog.showLoading("加载中");
+        }
+    }
+
+    public void dismissProgressDialog() {
+        if (progressDialog != null) {
+            progressDialog.dismiss();
+        }
     }
 }

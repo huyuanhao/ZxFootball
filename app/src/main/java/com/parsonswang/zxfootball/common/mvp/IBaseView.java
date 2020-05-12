@@ -6,5 +6,9 @@ package com.parsonswang.zxfootball.common.mvp;
 
 public interface IBaseView {
 
-    public void showExceptionView();
+    default void showLoding(){};
+
+    default void hideLoding(){};
+
+    default void showExceptionView(){};
 }

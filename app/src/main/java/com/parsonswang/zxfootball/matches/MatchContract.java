@@ -17,14 +17,15 @@ import java.util.ArrayList;
 
 public class MatchContract {
 
-    public interface IMatchView {
-         void showHeaderTabTitle(HeaderTabTitle headerTabTitle);
+    public interface IMatchView extends IBaseView{
+        void showHeaderTabTitle(HeaderTabTitle headerTabTitle);
     }
 
-    public interface IMatchInfoView {
-         void showMatchInfoList(MatchesBean matchesBean);
+    public interface IMatchInfoView extends IBaseView{
 
-         void onFail(String message);
+        void showMatchInfoList(MatchesBean matchesBean);
+
+        void onFail(String message);
     }
 
 
@@ -41,11 +42,12 @@ public class MatchContract {
 
 
     /**
-     *  比赛详情view
+     * 比赛详情view
      */
     public interface IMatchDetailView extends IBaseView {
         //展示比赛信息头部
         void showMatchInfoHeader(MatchDetailHeaderInfoBean matchDetailHeaderInfoBean);
+
         //展示比赛总结
         void showMatchSummary(MatchSummary matchSummary);
     }
@@ -55,17 +57,17 @@ public class MatchContract {
      */
     public interface IMatchStatView extends IBaseView {
 
-         void getGoalPlayersInfo(GoalPlayers goalPlayers);
+        void getGoalPlayersInfo(GoalPlayers goalPlayers);
 
-         void getMatchTimelineInfo(MatchStatBean matchStatBean);
+        void getMatchTimelineInfo(MatchStatBean matchStatBean);
     }
 
     /**
      * 比赛球员信息view
      */
     public interface IMatchPlayerInfoView extends IBaseView {
-        void getMatchPlayerInfo(ArrayList<MatchPlayerStatInfo.PlayerStatInfo> homePlayerStatInfos,
-                                ArrayList<MatchPlayerStatInfo.PlayerStatInfo> awayPlayerStatInfos);
+        void getMatchPlayerInfo(ArrayList< MatchPlayerStatInfo.PlayerStatInfo > homePlayerStatInfos,
+                                ArrayList< MatchPlayerStatInfo.PlayerStatInfo > awayPlayerStatInfos);
     }
 
     /**

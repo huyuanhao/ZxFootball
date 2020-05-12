@@ -225,5 +225,13 @@ public class MatchInfoListFragment extends BaseLazyLoadFragment implements Match
     public void onItemClick(MatchesBean.MatchInfo matchInfo) {
         MatchDetailActivity.actionStart(getActivity(), String.valueOf(matchInfo.getId()));
     }
+    @Override
+    public void showLoding() {
+        showProgressDialog();
+    }
 
+    @Override
+    public void hideLoding() {
+        dismissProgressDialog();
+    }
 }

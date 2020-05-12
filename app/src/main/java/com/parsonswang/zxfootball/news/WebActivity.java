@@ -1,11 +1,17 @@
 package com.parsonswang.zxfootball.news;
 
+import android.app.DownloadManager;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.DownloadListener;
+import android.webkit.URLUtil;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -15,6 +21,7 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.RequiresApi;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.parsonswang.common.base.BaseActivity;
@@ -92,6 +99,13 @@ public class WebActivity extends BaseActivity implements OnClickListener {
 
             }
         });
+        webView.setDownloadListener(new DownloadListener() {
+            @Override
+            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimeType, long contentLength) {
+                downloadByBrowser(url);
+//                downloadBySystem(url,contentDisposition,mimeType);
+            }
+        });
     }
     /***
      * 设置Web视图的方法
@@ -161,5 +175,44 @@ public class WebActivity extends BaseActivity implements OnClickListener {
                 }
                 break;
         }
+    }
+
+    private void downloadByBrowser(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
+    }
+
+    private void downloadBySystem(String url, String contentDisposition, String mimeType) {
+        // 指定下载地址
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+        // 允许媒体扫描，根据下载的文件类型被加入相册、音乐等媒体库
+        request.allowScanningByMediaScanner();
+        // 设置通知的显示类型，下载进行时和完成后显示通知
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        // 设置通知栏的标题，如果不设置，默认使用文件名
+//        request.setTitle("This is title");
+        // 设置通知栏的描述
+//        request.setDescription("This is description");
+        // 允许在计费流量下下载
+        request.setAllowedOverMetered(false);
+        // 允许该记录在下载管理界面可见
+        request.setVisibleInDownloadsUi(false);
+        // 允许漫游时下载
+        request.setAllowedOverRoaming(true);
+        // 允许下载的网路类型
+        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
+        // 设置下载文件保存的路径和文件名
+        String fileName  = URLUtil.guessFileName(url, contentDisposition, mimeType);
+        LogUtils.d("fileName:{}", fileName);
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName);
+//        另外可选一下方法，自定义下载路径
+//        request.setDestinationUri()
+//        request.setDestinationInExternalFilesDir()
+        final DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+        // 添加一个下载任务
+        long downloadId = downloadManager.enqueue(request);
+        LogUtils.d("downloadId:{}", downloadId);
     }
 }

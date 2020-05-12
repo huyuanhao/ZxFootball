@@ -10,6 +10,8 @@ public class Constant {
 
     public static class NetworkProtocolConstant {
 
+        public static final String GET_BALL_URL = "http://mock-api.com/wnaDo1g1.mock/getball";
+
         public static final String HTTP_NEW_URL = "http://api.tianapi.com/";
 
         public static final String NEW_LIST_URL = HTTP_NEW_URL + "football/index";

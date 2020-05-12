@@ -20,10 +20,12 @@ public class MachesFetchDataCallback<T> extends JsonCallback<MatchesBean> {
     @Override
     protected void onSuccess(MatchesBean matchesBean) {
         matchView.showMatchInfoList(matchesBean);
+        matchView.hideLoding();
     }
 
     @Override
     protected void onFail(Call call, String reson) {
         matchView.onFail(reson);
+        matchView.hideLoding();
     }
 }

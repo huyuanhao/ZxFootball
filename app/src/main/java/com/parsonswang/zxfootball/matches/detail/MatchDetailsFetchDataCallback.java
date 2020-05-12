@@ -35,7 +35,7 @@ public class MatchDetailsFetchDataCallback extends HtmlCallback {
     @Override
     protected void onSuccess(String s) {
         final Document document = Jsoup.parse(s);
-
+//        matchDetailView.hideLoding();
         //得到比赛头部信息
         MatchDetailHeaderInfoBean matchDetailHeaderInfoBean = getMatchHeaderBean(document);
 
@@ -68,6 +68,7 @@ public class MatchDetailsFetchDataCallback extends HtmlCallback {
 
     @Override
     protected void onFail(Call call, String reson) {
+//        matchDetailView.hideLoding();
         matchDetailView.showExceptionView();
     }
 
